@@ -104,18 +104,18 @@ IMPORTANT: Because ISResourceMediator takes measures to ensure that this delegat
 	id trackingObject;
 }
 
-@property(assign) pid_t pid;
+@property(assign) pid_t pid; /*!< The pid of the user. */
 
-@property(assign) BOOL isUsingResourceMediator;
+@property(assign) BOOL isUsingResourceMediator; /*!< YES if this user is using resource mediator to mediate access. */
 
-@property(assign) ISResourceMediatorResourceAccess preferredAccess;
-@property(assign) ISResourceMediatorResourceAccess actualAccess;
+@property(assign) ISResourceMediatorResourceAccess preferredAccess; /*!< How this user would like to access the resource. */
+@property(assign) ISResourceMediatorResourceAccess actualAccess;    /*!< How this user actually accesses the resource. */
 
-@property(retain) NSDictionary *broadcastInfo;
+@property(retain) NSDictionary *broadcastInfo; /*!< User-defined metadata broadcasted by this user. */
 
-@property(retain) NSRunningApplication *runningApplication;
+@property(retain) NSRunningApplication *runningApplication;  /*!< Convenience access to information about the resource using application. */
 
-@property(retain) id trackingObject;
+@property(retain) id trackingObject; /*!< Tracking object used by subclasses - do not touch. */
 
 @end
 
