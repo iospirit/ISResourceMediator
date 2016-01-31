@@ -122,12 +122,16 @@ If you participate in ISResourceMediator mediation, the only way code path in yo
 		completionHandler(kISResourceMediatorResultError);
 	}
 }
+
+...
 ```
 
 ### Control resource usage through ISResourceMediator
 You can then control access by setting the preferredAccess attribute to the respective value. ISResourceMediator will take care of calling the -resourceMediator:setApplicationAccessForResource:requestedBy:completion: delegate method as needed.
 
 ```objc
+...
+
 - (IBAction)startUsingResource
 {
 	// Tell ISResourceMediator that you would like to start using the resource in shared mode.
