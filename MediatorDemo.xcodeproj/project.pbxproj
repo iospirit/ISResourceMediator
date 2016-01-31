@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC6275611C526E12007700D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6275601C526E12007700D9 /* AppDelegate.m */; };
+		DC6275641C526E12007700D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6275631C526E12007700D9 /* main.m */; };
+		DC6275661C526E12007700D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6275651C526E12007700D9 /* Assets.xcassets */; };
+		DC6275691C526E12007700D9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6275671C526E12007700D9 /* MainMenu.xib */; };
+		DC6275751C526E95007700D9 /* ISResourceMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6275741C526E95007700D9 /* ISResourceMediator.m */; };
+		DC6DB17E1C596EBC004C60C5 /* ScarceResource.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6DB17D1C596EBC004C60C5 /* ScarceResource.m */; };
+		DC9DC4BF1C58E01D003CDB9D /* MediatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DC4BE1C58E01D003CDB9D /* MediatorTests.m */; };
+		DC9DC4C41C58E033003CDB9D /* ISResourceMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6275741C526E95007700D9 /* ISResourceMediator.m */; };
+		DCC52AFD1C5CDE4400BD7E76 /* ISIOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC52AFC1C5CDE4400BD7E76 /* ISIOObject.m */; };
+		DCC643E11C5A4A7900E77A97 /* ISIOResourceMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC643E01C5A4A7900E77A97 /* ISIOResourceMediator.m */; };
+		DCC643E31C5A650800E77A97 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC643E21C5A650800E77A97 /* IOKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCC52AF91C5A668300BD7E76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC6275541C526E12007700D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC62755B1C526E12007700D9;
+			remoteInfo = MediatorDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DC62755C1C526E12007700D9 /* MediatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC62755F1C526E12007700D9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DC6275601C526E12007700D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DC6275631C526E12007700D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC6275651C526E12007700D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC6275681C526E12007700D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DC62756A1C526E12007700D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC6275731C526E95007700D9 /* ISResourceMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISResourceMediator.h; sourceTree = "<group>"; };
+		DC6275741C526E95007700D9 /* ISResourceMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISResourceMediator.m; sourceTree = "<group>"; };
+		DC6DB17C1C596EBC004C60C5 /* ScarceResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScarceResource.h; sourceTree = "<group>"; };
+		DC6DB17D1C596EBC004C60C5 /* ScarceResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScarceResource.m; sourceTree = "<group>"; };
+		DC9DC4BC1C58E01D003CDB9D /* MediatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC9DC4BE1C58E01D003CDB9D /* MediatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediatorTests.m; sourceTree = "<group>"; };
+		DC9DC4C01C58E01D003CDB9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCC52AFB1C5CDE4400BD7E76 /* ISIOObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISIOObject.h; sourceTree = "<group>"; };
+		DCC52AFC1C5CDE4400BD7E76 /* ISIOObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISIOObject.m; sourceTree = "<group>"; };
+		DCC643DF1C5A4A7900E77A97 /* ISIOResourceMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISIOResourceMediator.h; sourceTree = "<group>"; };
+		DCC643E01C5A4A7900E77A97 /* ISIOResourceMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISIOResourceMediator.m; sourceTree = "<group>"; };
+		DCC643E21C5A650800E77A97 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC6275591C526E12007700D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC643E31C5A650800E77A97 /* IOKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9DC4B91C58E01D003CDB9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC6275531C526E12007700D9 = {
+			isa = PBXGroup;
+			children = (
+				DCC52AFF1C5CF7F800BD7E76 /* ResourceMediator */,
+				DC62755E1C526E12007700D9 /* MediatorDemo */,
+				DC9DC4BD1C58E01D003CDB9D /* MediatorTests */,
+				DC62755D1C526E12007700D9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC62755D1C526E12007700D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC62755C1C526E12007700D9 /* MediatorDemo.app */,
+				DC9DC4BC1C58E01D003CDB9D /* MediatorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC62755E1C526E12007700D9 /* MediatorDemo */ = {
+			isa = PBXGroup;
+			children = (
+				DC6275601C526E12007700D9 /* AppDelegate.m */,
+				DC62755F1C526E12007700D9 /* AppDelegate.h */,
+				DC6275651C526E12007700D9 /* Assets.xcassets */,
+				DC6275671C526E12007700D9 /* MainMenu.xib */,
+				DC62756A1C526E12007700D9 /* Info.plist */,
+				DC6275621C526E12007700D9 /* Supporting Files */,
+			);
+			path = MediatorDemo;
+			sourceTree = "<group>";
+		};
+		DC6275621C526E12007700D9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC6275631C526E12007700D9 /* main.m */,
+				DCC52AF81C5A666500BD7E76 /* Linked Frameworks */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC9DC4BD1C58E01D003CDB9D /* MediatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC9DC4BE1C58E01D003CDB9D /* MediatorTests.m */,
+				DC9DC4C01C58E01D003CDB9D /* Info.plist */,
+				DC6DB17D1C596EBC004C60C5 /* ScarceResource.m */,
+				DC6DB17C1C596EBC004C60C5 /* ScarceResource.h */,
+			);
+			path = MediatorTests;
+			sourceTree = "<group>";
+		};
+		DCC52AF81C5A666500BD7E76 /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCC643E21C5A650800E77A97 /* IOKit.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		DCC52AFE1C5CDE4700BD7E76 /* With IOKit Integration */ = {
+			isa = PBXGroup;
+			children = (
+				DCC643E01C5A4A7900E77A97 /* ISIOResourceMediator.m */,
+				DCC643DF1C5A4A7900E77A97 /* ISIOResourceMediator.h */,
+				DCC52AFC1C5CDE4400BD7E76 /* ISIOObject.m */,
+				DCC52AFB1C5CDE4400BD7E76 /* ISIOObject.h */,
+			);
+			name = "With IOKit Integration";
+			sourceTree = "<group>";
+		};
+		DCC52AFF1C5CF7F800BD7E76 /* ResourceMediator */ = {
+			isa = PBXGroup;
+			children = (
+				DC6275741C526E95007700D9 /* ISResourceMediator.m */,
+				DC6275731C526E95007700D9 /* ISResourceMediator.h */,
+				DCC52AFE1C5CDE4700BD7E76 /* With IOKit Integration */,
+			);
+			name = ResourceMediator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC62755B1C526E12007700D9 /* MediatorDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC62756D1C526E12007700D9 /* Build configuration list for PBXNativeTarget "MediatorDemo" */;
+			buildPhases = (
+				DC6275581C526E12007700D9 /* Sources */,
+				DC6275591C526E12007700D9 /* Frameworks */,
+				DC62755A1C526E12007700D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MediatorDemo;
+			productName = MediatorDemo;
+			productReference = DC62755C1C526E12007700D9 /* MediatorDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC9DC4BB1C58E01D003CDB9D /* MediatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC9DC4C31C58E01D003CDB9D /* Build configuration list for PBXNativeTarget "MediatorTests" */;
+			buildPhases = (
+				DC9DC4B81C58E01D003CDB9D /* Sources */,
+				DC9DC4B91C58E01D003CDB9D /* Frameworks */,
+				DC9DC4BA1C58E01D003CDB9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCC52AFA1C5A668300BD7E76 /* PBXTargetDependency */,
+			);
+			name = MediatorTests;
+			productName = MediatorTests;
+			productReference = DC9DC4BC1C58E01D003CDB9D /* MediatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC6275541C526E12007700D9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "IOSPIRIT GmbH";
+				TargetAttributes = {
+					DC62755B1C526E12007700D9 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					DC9DC4BB1C58E01D003CDB9D = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = DC6275571C526E12007700D9 /* Build configuration list for PBXProject "MediatorDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC6275531C526E12007700D9;
+			productRefGroup = DC62755D1C526E12007700D9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC62755B1C526E12007700D9 /* MediatorDemo */,
+				DC9DC4BB1C58E01D003CDB9D /* MediatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC62755A1C526E12007700D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6275661C526E12007700D9 /* Assets.xcassets in Resources */,
+				DC6275691C526E12007700D9 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9DC4BA1C58E01D003CDB9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC6275581C526E12007700D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC643E11C5A4A7900E77A97 /* ISIOResourceMediator.m in Sources */,
+				DC6275641C526E12007700D9 /* main.m in Sources */,
+				DCC52AFD1C5CDE4400BD7E76 /* ISIOObject.m in Sources */,
+				DC6275611C526E12007700D9 /* AppDelegate.m in Sources */,
+				DC6275751C526E95007700D9 /* ISResourceMediator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9DC4B81C58E01D003CDB9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6DB17E1C596EBC004C60C5 /* ScarceResource.m in Sources */,
+				DC9DC4BF1C58E01D003CDB9D /* MediatorTests.m in Sources */,
+				DC9DC4C41C58E033003CDB9D /* ISResourceMediator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCC52AFA1C5A668300BD7E76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC62755B1C526E12007700D9 /* MediatorDemo */;
+			targetProxy = DCC52AF91C5A668300BD7E76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC6275671C526E12007700D9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC6275681C526E12007700D9 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC62756B1C526E12007700D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DC62756C1C526E12007700D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DC62756E1C526E12007700D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MediatorDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iospirit.MediatorDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DC62756F1C526E12007700D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MediatorDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iospirit.MediatorDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DC9DC4C11C58E01D003CDB9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MediatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iospirit.MediatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DC9DC4C21C58E01D003CDB9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MediatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iospirit.MediatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC6275571C526E12007700D9 /* Build configuration list for PBXProject "MediatorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC62756B1C526E12007700D9 /* Debug */,
+				DC62756C1C526E12007700D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC62756D1C526E12007700D9 /* Build configuration list for PBXNativeTarget "MediatorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC62756E1C526E12007700D9 /* Debug */,
+				DC62756F1C526E12007700D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC9DC4C31C58E01D003CDB9D /* Build configuration list for PBXNativeTarget "MediatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC9DC4C11C58E01D003CDB9D /* Debug */,
+				DC9DC4C21C58E01D003CDB9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC6275541C526E12007700D9 /* Project object */;
+}
