@@ -96,7 +96,7 @@ If you participate in ISResourceMediator mediation, the only way code path in yo
 - (void)resourceMediator:(ISResourceMediator *)mediator
 	setApplicationAccessForResource:(ISResourceMediatorResourceAccess)access
 	requestedBy:(ISResourceUser *)user
-	completion:(void(^)(ISResourceMediatorResult result))completionHandler; 
+	completion:(void(^)(ISResourceMediatorResult result))completionHandler
 {
 	// IMPORTANT: this delegate method is guaranteed to not be called again until completionHandler(result) has been called.
 
@@ -192,19 +192,19 @@ If you want to know who else is interested in using the resource managed through
 	}
 }
 
-- (void)resourceMediator:(ISResourceMediator *)mediator userAppeared:(ISResourceUser *)user; /*!< Called when a new user of the resource was found. */
+- (void)resourceMediator:(ISResourceMediator *)mediator userAppeared:(ISResourceUser *)user
 {
 	NSLog(@"User appeared:");
 	[self printUser:user];
 }
 
-- (void)resourceMediator:(ISResourceMediator *)mediator userUpdated:(ISResourceUser *)user; /*!< Called when user of the resource (may have) updated its data. */
+- (void)resourceMediator:(ISResourceMediator *)mediator userUpdated:(ISResourceUser *)user
 {
 	NSLog(@"Information updated for user:");
 	[self printUser:user];
 }
 
-- (void)resourceMediator:(ISResourceMediator *)mediator userDisappeared:(ISResourceUser *)user; /*!< Called when user is no longer interested in a resource or has been quit. */
+- (void)resourceMediator:(ISResourceMediator *)mediator userDisappeared:(ISResourceUser *)user
 {
 	NSLog(@"User disappeared:");
 	[self printUser:user];
@@ -220,7 +220,7 @@ Examples:
 Apple Remote: apple.remote
 Siri Remote: apple.siri-remote
 
-If you want to use ISResourceMediator for a new device for which no identifier exists yet, please feel free to ask and I'll add one to the list.
+If you want to use ISResourceMediator for a new device for which no identifier exists yet, please feel free to ask [me](https://twitter.com/felix_schwarz/) and I'll add one to the list.
 
 ## License
 ISResourceMediator is MIT licensed.
