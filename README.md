@@ -217,8 +217,8 @@ If you want to know who else is interested in using the resource managed through
 Resource identifiers should take the form of "[vendor].[product-name]" in all lower case.
 
 Examples:
-Apple Remote: apple.remote
-Siri Remote: apple.siri-remote
+* Apple Remote: apple.remote
+* Siri Remote: apple.siri-remote
 
 If you want to use ISResourceMediator for a new device for which no identifier exists yet, please feel free to ask [me](https://twitter.com/felix_schwarz/) and I'll add one to the list.
 
