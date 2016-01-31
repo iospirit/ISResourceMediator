@@ -56,7 +56,7 @@ This is how to sign up for and participate in mediation.
 
 #define kMyResourceIdentifier @"my.resource"
 
-…
+...
 
 @interface AppDelegate : NSObject <NSApplicationDelegate,ISResourceMediatorDelegate>
 {
@@ -65,7 +65,7 @@ This is how to sign up for and participate in mediation.
 
 @end
 
-… 
+... 
 
 @implementation AppDelegate
 
@@ -84,14 +84,14 @@ This is how to sign up for and participate in mediation.
 	}
 }
 
-…
+...
 ```
 
 ### Change/Attempt access as determined by mediation
 If you participate in ISResourceMediator mediation, the only way code path in your app that attempts establishing access to the shared resource should be through this delegate method.
 
 ```objc
-…
+...
 
 - (void)resourceMediator:(ISResourceMediator *)mediator
 	setApplicationAccessForResource:(ISResourceMediatorResourceAccess)access
@@ -103,12 +103,17 @@ If you participate in ISResourceMediator mediation, the only way code path in yo
 	if (access == kISResourceMediatorResourceAccessNone)
 	{
 		// Stop using the resource, then execute completionHandler with a result call
+
+		... 
+
 		completionHandler(kISResourceMediatorResultSuccess);
 	}
 	else if (access == kISResourceMediatorResourceAccessShared) // the value we provided for mediator.preferredAccess
 	{
 		// Start using the resource, then execute completionHandler with a result call
-		…
+
+		...
+
 		completionHandler(kISResourceMediatorResultSuccess);
 	}
 	else
