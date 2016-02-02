@@ -222,10 +222,6 @@ Once you check the "Active" checkbox, the app partakes in mediation.
 ## Resource Identifiers
 Resource identifiers should take the form of "[vendor].[product-name]" in all lower case.
 
-### Examples
-* Apple Remote: apple.remote
-* Siri Remote: apple.siri-remote
-
 ### Registered Resource Identifiers
 | Resource      | Identifier        | Used by applications     |
 | ------------- | ----------------- | ------------------------ |
