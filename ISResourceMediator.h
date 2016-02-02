@@ -69,15 +69,15 @@ typedef NS_ENUM(NSUInteger, ISResourceMediatorResult)
      @abstract The pressure with which access to the resource is needed 
      @constant kISResourceMediatorAccessPressureNone			Access to the resource is not needed.
      @constant kISResourceMediatorAccessPressureOptional		Access to the resource is optional. Use for apps that offer additional features when the resource is available to them, but which don't rely on the resource for their operation. (default)
-     @constant kISResourceMediatorAccessPressurePartiallySupport	Access to the resource is partially supported. Use for apps that need the resource to offer core functionality, but which don't support all features of the resource.
+     @constant kISResourceMediatorAccessPressurePartiallySupported	Access to the resource is partially supported. Use for apps that need the resource to offer core functionality, but which don't support all features of the resource.
      @constant kISResourceMediatorAccessPressureRequired		Access to the resource is required. Use for apps that need the resource to offer core functionality and provide support for all features of the resource.
 */
 typedef NS_ENUM(NSUInteger, ISResourceMediatorAccessPressure)
 {
-	kISResourceMediatorAccessPressureNone		   = 0,
-	kISResourceMediatorAccessPressureOptional	   = 25,
-	kISResourceMediatorAccessPressurePartiallySupport  = 50,
-	kISResourceMediatorAccessPressureRequired	   = 100
+	kISResourceMediatorAccessPressureNone		    = 0,
+	kISResourceMediatorAccessPressureOptional	    = 25,
+	kISResourceMediatorAccessPressurePartiallySupported = 50,
+	kISResourceMediatorAccessPressureRequired	    = 100
 };
 
 typedef void(^ISResourceMediatorCommand)(dispatch_block_t completionHandler);
@@ -210,3 +210,27 @@ IMPORTANT: Because ISResourceMediator takes measures to ensure that this delegat
 - (void)userTerminated:(ISResourceUser *)user;
 
 @end
+
+/*
+	PROTOCOL/ALGORITHM
+	
+	Discovery
+	[SCAN] => All active mediators for that resource ID send their current status as [STATUS] notification
+	
+	Access request
+	[ACCESS_REQUEST] => [USER] Targeting particular user who holds access (adding [USER] to pendingResponse set) => [USER] decides, takes action, sets [ORIGIN] as lendingUser, sends [ACCESS_RESPONSE] to requester:
+		[ACCESS_RESPONSE]
+			=> [SUCCESS] => grab access, set lentFromUser to [USER], issue [SCAN] with targetPID of [USER], as to ask it to inform everybody about its new status, remove [USER] from pendingResponse set
+			=> [ERROR/DENY] => don't grab access, remove [USER] from pendingResponse set
+	- consider suspending sending update notifications in [USER] between receiving [ACCESS_REQUEST] and sending [ACCESS_RESPONSE], to avoid a [STATUS] notification going out for updates made by the app/class inbetween
+	
+	Ending/Returning access
+	- by quitting
+	- by posting updated [STATUS] notification (if lent, first targeted to lentFromUser [USER], then globally, to give the lender a better chance of winning any competition)
+	=> if that app lent access to anybody, the lender should now run -considerRequestingAccess to take it back
+
+	Consider access
+	- if preferredAccess == Shared => address any users with Exclusive lock
+	- if preferredAccess == Exclusive => address any users with Shared or Exclusive lock
+	- exclude users in pendingResponse
+*/

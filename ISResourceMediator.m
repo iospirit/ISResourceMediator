@@ -867,28 +867,3 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 }
 
 @end
-
-/*
-	PROTOCOL/ALGORITHM
-	
-	Discovery
-	[SCAN] => All active mediators for that resource ID send their current status as [STATUS] notification
-	
-	Access request
-	[ACCESS_REQUEST] => [USER] Targeting particular user who holds access (adding [USER] to pendingResponse set) => [USER] decides, takes action, sets [ORIGIN] as lendingUser, sends [ACCESS_RESPONSE] to requester:
-		[ACCESS_RESPONSE]
-			=> [SUCCESS] => grab access, set lentFromUser to [USER], issue [SCAN] with targetPID of [USER], as to ask it to inform everybody about its new status, remove [USER] from pendingResponse set
-			=> [ERROR/DENY] => don't grab access, remove [USER] from pendingResponse set
-	- consider suspending sending update notifications in [USER] between receiving [ACCESS_REQUEST] and sending [ACCESS_RESPONSE], to avoid a [STATUS] notification going out for updates made by the app/class inbetween
-	
-	Ending/Returning access
-	- by quitting
-	- by posting updated [STATUS] notification (if lent, first targeted to lentFromUser [USER], then globally, to give the lender a better chance of winning any competition)
-	=> if that app lent access to anybody, the lender should now run -considerRequestingAccess to take it back
-
-	Consider access
-	- if preferredAccess == Shared => address any users with Exclusive lock
-	- if preferredAccess == Exclusive => address any users with Shared or Exclusive lock
-	- exclude users in pendingResponse
-*/
-
