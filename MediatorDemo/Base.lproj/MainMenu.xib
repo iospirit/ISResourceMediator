@@ -896,19 +896,6 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
-                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ts4-lW-Tsk">
-                        <rect key="frame" x="80" y="374" width="304" height="24"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="gyL-Tm-adH">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Virtual Device" selected="YES"/>
-                                <segment label="IOKit Device (Apple Remote)" tag="1"/>
-                            </segments>
-                        </segmentedCell>
-                        <connections>
-                            <action selector="makeChange:" target="Voe-Tx-rLC" id="Hxm-eW-TIX"/>
-                        </connections>
-                    </segmentedControl>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="mEG-rl-rsD">
                         <rect key="frame" x="402" y="402" width="60" height="18"/>
                         <buttonCell key="cell" type="check" title="Active" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="G0N-ex-8kU">
@@ -919,6 +906,20 @@
                             <action selector="makeChange:" target="Voe-Tx-rLC" id="aBn-oC-Q6t"/>
                         </connections>
                     </button>
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ts4-lW-Tsk">
+                        <rect key="frame" x="80" y="374" width="394" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="gyL-Tm-adH">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="Virtual Device" selected="YES"/>
+                                <segment label="IOKit Device (Apple Remote)" tag="1"/>
+                                <segment label="HIDRemote"/>
+                            </segments>
+                        </segmentedCell>
+                        <connections>
+                            <action selector="makeChange:" target="Voe-Tx-rLC" id="Hxm-eW-TIX"/>
+                        </connections>
+                    </segmentedControl>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SPS-f4-6EY" firstAttribute="trailing" secondItem="Ce6-O1-ARm" secondAttribute="trailing" id="0RF-Xs-cag"/>
@@ -956,7 +957,7 @@
                     <constraint firstItem="ElK-EK-e5j" firstAttribute="leading" secondItem="U3P-5e-cMV" secondAttribute="leading" id="nUy-7f-R0g"/>
                     <constraint firstItem="ogS-Eb-ZRJ" firstAttribute="leading" secondItem="DLW-bv-hv6" secondAttribute="leading" id="sEz-Se-e5v"/>
                     <constraint firstItem="k7Y-CQ-CGo" firstAttribute="trailing" secondItem="DLW-bv-hv6" secondAttribute="trailing" id="tRa-dh-XGV"/>
-                    <constraint firstItem="O7c-Rj-xSG" firstAttribute="trailing" secondItem="Ts4-lW-Tsk" secondAttribute="trailing" id="tyY-Ah-oys"/>
+                    <constraint firstItem="O7c-Rj-xSG" firstAttribute="trailing" secondItem="Ts4-lW-Tsk" secondAttribute="trailing" constant="-90" id="tyY-Ah-oys"/>
                     <constraint firstItem="6eM-gg-ztE" firstAttribute="leading" secondItem="SPS-f4-6EY" secondAttribute="trailing" constant="18" id="yea-GS-pcm"/>
                     <constraint firstItem="Ce6-O1-ARm" firstAttribute="baseline" secondItem="YbE-bb-2a7" secondAttribute="baseline" id="zFs-Lw-qfO"/>
                 </constraints>

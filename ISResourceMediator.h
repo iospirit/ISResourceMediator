@@ -206,6 +206,7 @@ IMPORTANT: Because ISResourceMediator takes measures to ensure that this delegat
 - (void)considerRequestingAccess;
 
 #pragma mark - User management
+- (ISResourceUser *)newUser NS_RETURNS_RETAINED;
 - (ISResourceUser *)resourceUserForPID:(pid_t)userPID createIfNotExists:(BOOL)createIfNotExists;
 - (void)userTerminated:(ISResourceUser *)user;
 

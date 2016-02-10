@@ -16,6 +16,7 @@
 		DC6DB17E1C596EBC004C60C5 /* ScarceResource.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6DB17D1C596EBC004C60C5 /* ScarceResource.m */; };
 		DC9DC4BF1C58E01D003CDB9D /* MediatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DC4BE1C58E01D003CDB9D /* MediatorTests.m */; };
 		DC9DC4C41C58E033003CDB9D /* ISResourceMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6275741C526E95007700D9 /* ISResourceMediator.m */; };
+		DCB9B0EF1C6B3CC0006649B3 /* ISHIDRemoteMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB9B0EE1C6B3CC0006649B3 /* ISHIDRemoteMediator.m */; };
 		DCC52AFD1C5CDE4400BD7E76 /* ISIOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC52AFC1C5CDE4400BD7E76 /* ISIOObject.m */; };
 		DCC643E11C5A4A7900E77A97 /* ISIOResourceMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC643E01C5A4A7900E77A97 /* ISIOResourceMediator.m */; };
 		DCC643E31C5A650800E77A97 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC643E21C5A650800E77A97 /* IOKit.framework */; };
@@ -48,6 +49,8 @@
 		DC9DC4BC1C58E01D003CDB9D /* MediatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9DC4BE1C58E01D003CDB9D /* MediatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediatorTests.m; sourceTree = "<group>"; };
 		DC9DC4C01C58E01D003CDB9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCB9B0ED1C6B3CC0006649B3 /* ISHIDRemoteMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHIDRemoteMediator.h; sourceTree = "<group>"; };
+		DCB9B0EE1C6B3CC0006649B3 /* ISHIDRemoteMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHIDRemoteMediator.m; sourceTree = "<group>"; };
 		DCC52AFB1C5CDE4400BD7E76 /* ISIOObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISIOObject.h; sourceTree = "<group>"; };
 		DCC52AFC1C5CDE4400BD7E76 /* ISIOObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISIOObject.m; sourceTree = "<group>"; };
 		DCC643DF1C5A4A7900E77A97 /* ISIOResourceMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISIOResourceMediator.h; sourceTree = "<group>"; };
@@ -128,6 +131,15 @@
 			path = MediatorTests;
 			sourceTree = "<group>";
 		};
+		DCB9B0EC1C6B3C98006649B3 /* With HIDRemote integration */ = {
+			isa = PBXGroup;
+			children = (
+				DCB9B0EE1C6B3CC0006649B3 /* ISHIDRemoteMediator.m */,
+				DCB9B0ED1C6B3CC0006649B3 /* ISHIDRemoteMediator.h */,
+			);
+			name = "With HIDRemote integration";
+			sourceTree = "<group>";
+		};
 		DCC52AF81C5A666500BD7E76 /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +155,7 @@
 				DCC643DF1C5A4A7900E77A97 /* ISIOResourceMediator.h */,
 				DCC52AFC1C5CDE4400BD7E76 /* ISIOObject.m */,
 				DCC52AFB1C5CDE4400BD7E76 /* ISIOObject.h */,
+				DCB9B0EC1C6B3C98006649B3 /* With HIDRemote integration */,
 			);
 			name = "With IOKit Integration";
 			sourceTree = "<group>";
@@ -258,6 +271,7 @@
 			files = (
 				DCC643E11C5A4A7900E77A97 /* ISIOResourceMediator.m in Sources */,
 				DC6275641C526E12007700D9 /* main.m in Sources */,
+				DCB9B0EF1C6B3CC0006649B3 /* ISHIDRemoteMediator.m in Sources */,
 				DCC52AFD1C5CDE4400BD7E76 /* ISIOObject.m in Sources */,
 				DC6275611C526E12007700D9 /* AppDelegate.m in Sources */,
 				DC6275751C526E95007700D9 /* ISResourceMediator.m in Sources */,

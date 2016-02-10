@@ -8,18 +8,14 @@
 
 #import "AppDelegate.h"
 #import "ISIOResourceMediator.h"
+#import "ISHIDRemoteMediator.h"
 
 typedef NS_ENUM(NSInteger, TrackingMode)
 {
 	kTrackingModeVirtual = 0,
-	kTrackingModeAppleRemote
+	kTrackingModeAppleRemote,
+	kTrackingModeHIDRemote
 };
-
-typedef enum
-{
-	kHIDRemoteCompatibilityFlagsStandardHIDRemoteDevice = 1L,
-} HIDRemoteCompatibilityFlags;
-
 
 @interface AppDelegate () <ISIOResourceMediatorDelegate, ISResourceMediatorDelegate, NSTableViewDataSource>
 
@@ -96,7 +92,11 @@ typedef enum
 		break;
 
 		case kTrackingModeAppleRemote:
-			mediator = [[ISIOResourceMediator alloc] initMediatorForResourceWithIdentifier:@"remote.apple" deviceClassName:@"IOHIDDevice" userClientClassName:@"IOUserClient" delegate:self];
+			mediator = [[ISIOResourceMediator alloc] initMediatorForResourceWithIdentifier:@"apple.remote" deviceClassName:@"IOHIDDevice" userClientClassName:@"IOUserClient" delegate:self];
+		break;
+
+		case kTrackingModeHIDRemote:
+			mediator = [[ISHIDRemoteMediator alloc] initMediatorWithDelegate:self];
 		break;
 	}
 	

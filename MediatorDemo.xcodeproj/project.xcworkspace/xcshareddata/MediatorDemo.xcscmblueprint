@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8960213A4FDEAD5FAC11353A98AB49F032D76DD1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FD3313F1271122AC76327A95D39A8B712D18D433" : 0,
+    "8960213A4FDEAD5FAC11353A98AB49F032D76DD1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3F7916C9-5A98-4105-AB24-D475617026F0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FD3313F1271122AC76327A95D39A8B712D18D433" : "..\/GitHub\/HIDRemote",
+    "8960213A4FDEAD5FAC11353A98AB49F032D76DD1" : "ISResourceMediator\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MediatorDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MediatorDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/gitlab.iospirit.net\/felix\/ISResourceMediator.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8960213A4FDEAD5FAC11353A98AB49F032D76DD1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:iospirit\/HIDRemote.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FD3313F1271122AC76327A95D39A8B712D18D433"
+    }
+  ]
+}

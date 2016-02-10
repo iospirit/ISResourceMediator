@@ -538,6 +538,11 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 }
 
 #pragma mark - User administration
+- (ISResourceUser *)newUser
+{
+	return ([[ISResourceUser alloc] init]);
+}
+
 - (ISResourceUser *)_addUserForPID:(pid_t)userPID
 {
 	ISResourceUser *user = nil;
@@ -546,7 +551,7 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 	{
 		if (userPID != self.pid)
 		{
-			if ((user = [[ISResourceUser alloc] init]) != nil)
+			if ((user = [self newUser]) != nil)
 			{
 				user.pid = userPID;
 				

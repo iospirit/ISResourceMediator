@@ -317,14 +317,7 @@ static void ISIOResourceMediatorBusyInterestChangeHandler(void *refcon, io_servi
 
 		if ((deviceObj = [[ISIOResourceTrackedDevice alloc] initWithIOObject:matchingService]) != nil)
 		{
-			BOOL track = YES;
-			
-			if ((ioDelegate != nil) && ([ioDelegate respondsToSelector:@selector(resourceMediator:trackDevice:)]))
-			{
-				track = [ioDelegate resourceMediator:self trackDevice:deviceObj];
-			}
-		
-			if (track)
+			if ([self trackDevice:deviceObj])
 			{
 				@synchronized(self)
 				{
@@ -355,7 +348,6 @@ static void ISIOResourceMediatorBusyInterestChangeHandler(void *refcon, io_servi
 {
 	if (userClientObj != nil)
 	{
-		BOOL track = YES;
 		NSString *pidLine = nil, *appName = nil;
 		pid_t userClientPid = 0;
 		
@@ -383,13 +375,8 @@ static void ISIOResourceMediatorBusyInterestChangeHandler(void *refcon, io_servi
 			
 			[pidLine release];
 		}
-		
-		if ((ioDelegate != nil) && ([ioDelegate respondsToSelector:@selector(resourceMediator:trackUserClient:pid:name:)]))
-		{
-			track = [ioDelegate resourceMediator:self trackUserClient:userClientObj pid:userClientPid name:appName];
-		}
-	
-		if (track)
+
+		if ([self trackUserClient:userClientObj pid:userClientPid name:appName])
 		{
 			ISResourceUser *user = nil;
 			
@@ -472,6 +459,31 @@ static void ISIOResourceMediatorBusyInterestChangeHandler(void *refcon, io_servi
 			[usersPendingRemoval release];
 		}
 	}
+}
+
+#pragma mark - Matching
+- (BOOL)trackDevice:(ISIOObject *)deviceService
+{
+	BOOL track = YES;
+	
+	if ((ioDelegate != nil) && ([ioDelegate respondsToSelector:@selector(resourceMediator:trackDevice:)]))
+	{
+		track = [ioDelegate resourceMediator:self trackDevice:deviceService];
+	}
+	
+	return (track);
+}
+
+- (BOOL)trackUserClient:(ISIOObject *)userClientService pid:(pid_t)appPid name:(NSString *)appName
+{
+	BOOL track = YES;
+		
+	if ((ioDelegate != nil) && ([ioDelegate respondsToSelector:@selector(resourceMediator:trackUserClient:pid:name:)]))
+	{
+		track = [ioDelegate resourceMediator:self trackUserClient:userClientService pid:appPid name:appName];
+	}
+	
+	return (track);
 }
 
 #pragma mark - Delegates
