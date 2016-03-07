@@ -372,35 +372,38 @@ static void ISIOResourceMediatorBusyInterestChangeHandler(void *refcon, io_servi
 					}
 				}
 			}
-			
-			[pidLine release];
-		}
-
-		if ([self trackUserClient:userClientObj pid:userClientPid name:appName])
-		{
-			ISResourceUser *user = nil;
-			
-			@synchronized(self)
+		
+			if ((userClientPid != 0) && (appName != nil))
 			{
-				if ((user = [self resourceUserForPID:userClientPid createIfNotExists:YES]) != nil)
+				if ([self trackUserClient:userClientObj pid:userClientPid name:appName])
 				{
-					if (user.trackingObject != nil)
+					ISResourceUser *user = nil;
+					
+					@synchronized(self)
 					{
-						if ([user.trackingObject isKindOfClass:[NSMutableArray class]])
+						if ((user = [self resourceUserForPID:userClientPid createIfNotExists:YES]) != nil)
 						{
-							[(NSMutableArray *)user.trackingObject addObject:userClientObj];
+							if (user.trackingObject != nil)
+							{
+								if ([user.trackingObject isKindOfClass:[NSMutableArray class]])
+								{
+									[(NSMutableArray *)user.trackingObject addObject:userClientObj];
+								}
+								else
+								{
+									user.trackingObject = [NSMutableArray arrayWithObjects:user.trackingObject, userClientObj, nil];
+								}
+							}
+							else
+							{
+								user.trackingObject = userClientObj;
+							}
 						}
-						else
-						{
-							user.trackingObject = [NSMutableArray arrayWithObjects:user.trackingObject, userClientObj, nil];
-						}
-					}
-					else
-					{
-						user.trackingObject = userClientObj;
 					}
 				}
 			}
+			
+			[pidLine release];
 		}
 	}
 }

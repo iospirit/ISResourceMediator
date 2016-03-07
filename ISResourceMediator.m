@@ -631,12 +631,16 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 
 - (void)userTerminated:(ISResourceUser *)user
 {
+	[user retain];
+
 	[self _removeUser:user];
 
 	if ((delegate!=nil) && ([delegate respondsToSelector:@selector(resourceMediator:userDisappeared:)]))
 	{
 		[delegate resourceMediator:self userDisappeared:user];
 	}
+
+	[user release];
 	
 	[self considerRequestingAccess];
 }

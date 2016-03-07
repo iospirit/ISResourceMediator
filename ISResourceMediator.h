@@ -130,7 +130,7 @@ IMPORTANT: Because ISResourceMediator takes measures to ensure that this delegat
 	
 	NSDictionary *broadcastInfo;
 	
-	NSRunningApplication *runningApp;
+	NSRunningApplication *runningApplication;
 	
 	id trackingObject;
 }
