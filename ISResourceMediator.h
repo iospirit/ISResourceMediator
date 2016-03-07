@@ -126,6 +126,8 @@ IMPORTANT: Because ISResourceMediator takes measures to ensure that this delegat
 	ISResourceMediatorResourceAccess preferredAccess;
 	ISResourceMediatorResourceAccess actualAccess;
 	
+	ISResourceMediatorAccessPressure accessPressure;
+	
 	NSDictionary *broadcastInfo;
 	
 	NSRunningApplication *runningApp;
@@ -139,6 +141,8 @@ IMPORTANT: Because ISResourceMediator takes measures to ensure that this delegat
 
 @property(assign) ISResourceMediatorResourceAccess preferredAccess; /*!< How this user would like to access the resource. */
 @property(assign) ISResourceMediatorResourceAccess actualAccess;    /*!< How this user actually accesses the resource. */
+
+@property(assign) ISResourceMediatorAccessPressure accessPressure;  /*!< How urgently this user needs to access the resource. */
 
 @property(retain) NSDictionary *broadcastInfo; /*!< User-defined metadata broadcasted by this user. */
 
@@ -167,6 +171,7 @@ IMPORTANT: Because ISResourceMediator takes measures to ensure that this delegat
 	
 	NSMutableSet<ISResourceUser *> *pendingResponse;
 	ISResourceMediatorResourceAccess lendingUserFromPreferredAccess;
+	ISResourceMediatorAccessPressure lendingUserFromAccessPressure;
 	ISResourceUser *lendingUser;
 	ISResourceUser *lentFromUser;  // matters only for lending blocking access, so keeping track of one source is sufficient. For shared access, by definition, the order of apps requesting shared access should not matter.
 	

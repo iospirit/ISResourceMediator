@@ -67,6 +67,7 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 
 @synthesize preferredAccess;
 @synthesize actualAccess;
+@synthesize accessPressure;
 
 @synthesize broadcastInfo;
 @synthesize runningApplication;
@@ -329,7 +330,7 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 			
 			if (user != nil)
 			{
-				NSNumber *preferredAccessNumber = nil, *actualAccessNumber = nil;
+				NSNumber *preferredAccessNumber = nil, *actualAccessNumber = nil, *accessPressureNumber = nil;
 				NSDictionary *broadcastInfoDict = nil;
 				
 				if ((preferredAccessNumber = [notificationUserInfo objectForKey:kISResourceMediatorNotificationPreferredAccessKey]) != nil)
@@ -340,6 +341,11 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 				if ((actualAccessNumber = [notificationUserInfo objectForKey:kISResourceMediatorNotificationActualAccessKey]) != nil)
 				{
 					user.actualAccess = [actualAccessNumber unsignedIntegerValue];
+				}
+				
+				if ((accessPressureNumber = [notificationUserInfo objectForKey:kISResourceMediatorNotificationAccessPressureKey]) != nil)
+				{
+					user.accessPressure = [accessPressureNumber unsignedIntegerValue];
 				}
 				
 				if ((broadcastInfoDict = [notificationUserInfo objectForKey:kISResourceMediatorNotificationBroadcastInfoKey]) != nil)
@@ -429,6 +435,7 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 							[lendingUser release];
 							lendingUser = [sourceUser retain];
 							lendingUserFromPreferredAccess = preferredAccess;
+							lendingUserFromAccessPressure = lendingUser.accessPressure;
 						}
 						
 						[self _postNotificationWithName:kISResourceMediatorNotificationAccessResponseName userInfo:@{
@@ -485,6 +492,14 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 
 						[lentFromUser release];
 						lentFromUser = [sourceUser retain];
+						
+						if (lendingUser == sourceUser)
+						{
+							lendingUserFromPreferredAccess = kISResourceMediatorResourceAccessNone;
+							lendingUserFromAccessPressure = kISResourceMediatorAccessPressureNone;
+							[lendingUser release];
+							lendingUser = nil;
+						}
 
 						[self setApplicationAccessForResource:thePreferredAccess requestedBy:sourceUser completion:^(ISResourceMediatorResult result) {
 							if (result == kISResourceMediatorResultSuccess)
@@ -518,6 +533,7 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 				kISResourceMediatorNotificationResourceIdentifierKey	: resourceIdentifier,
 				kISResourceMediatorNotificationPreferredAccessKey	: @(self.preferredAccess),
 				kISResourceMediatorNotificationActualAccessKey		: @(self.actualAccess),
+				kISResourceMediatorNotificationAccessPressureKey	: @(self.accessPressure),
 
 				kISResourceMediatorNotificationBroadcastInfoKey		: ((broadcastInfo!=nil) ? broadcastInfo : @"")
 			}];
@@ -701,6 +717,7 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 				if (actualAccess == preferredAccess)
 				{
 					lendingUserFromPreferredAccess = kISResourceMediatorResourceAccessNone;
+					lendingUserFromAccessPressure = kISResourceMediatorAccessPressureNone;
 					[lendingUser release];
 					lendingUser = nil;
 				}
@@ -714,6 +731,22 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 		if ((delegate!=nil) && ([delegate respondsToSelector:@selector(resourceMediator:actualAccessChangedTo:)]))
 		{
 			[delegate resourceMediator:self actualAccessChangedTo:newActualAccess];
+		}
+	}
+}
+
+- (void)setAccessPressure:(ISResourceMediatorAccessPressure)newAccessPressure
+{
+	if (newAccessPressure != accessPressure)
+	{
+		accessPressure = newAccessPressure;
+
+		accessStartTime = [NSDate timeIntervalSinceReferenceDate];
+	
+		@synchronized(self)
+		{
+			[self postStatusNotification];
+			[self considerRequestingAccess];
 		}
 	}
 }
@@ -790,9 +823,10 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 							{
 								// Send access request?
 								if (((preferredAccess == kISResourceMediatorResourceAccessShared)   && (user.actualAccess == kISResourceMediatorResourceAccessBlocking)) ||
-								    ((preferredAccess == kISResourceMediatorResourceAccessBlocking) && ((user.actualAccess == kISResourceMediatorResourceAccessShared) || (user.actualAccess == kISResourceMediatorResourceAccessBlocking))))
+								    ((preferredAccess == kISResourceMediatorResourceAccessBlocking) && ((user.actualAccess == kISResourceMediatorResourceAccessShared) || (user.actualAccess == kISResourceMediatorResourceAccessBlocking))) ||
+								    ((preferredAccess == kISResourceMediatorResourceAccessBlocking) && (user.actualAccess != kISResourceMediatorResourceAccessNone) && (user.actualAccess == user.preferredAccess) && (user.accessPressure < accessPressure)))
 								{
-									if ((![pendingResponse containsObject:user]) && (!((user==lendingUser) && (lendingUserFromPreferredAccess == preferredAccess))))
+									if ((![pendingResponse containsObject:user]) && (!((user==lendingUser) && (lendingUserFromPreferredAccess == preferredAccess) && (lendingUserFromAccessPressure == user.accessPressure))))
 									{
 										// Send access request
 										[pendingResponse addObject:user];

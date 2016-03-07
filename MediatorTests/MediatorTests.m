@@ -449,7 +449,7 @@ DAMAGE.
 
 		if (mediator == mediatorC)
 		{
-			XCTAssert((mediatorC.actualAccess == kISResourceMediatorResourceAccessBlocking), @"Mediator C got blocking access - superior access pressure of Mediator B ignored?");
+			XCTAssert((mediatorC.actualAccess != kISResourceMediatorResourceAccessBlocking), @"Mediator C got blocking access - superior access pressure of Mediator B ignored?");
 		}
 	};
 
@@ -468,6 +468,83 @@ DAMAGE.
 	});
 
 	[self waitForExpectationsWithTimeout:1.5 handler:nil];
+}
+
+- (void)testAccessPressureChange
+{
+	XCTestExpectation __block *medACanAccessShared = [self expectationWithDescription:@"Mediator A can access resource in shared mode"];
+	XCTestExpectation __block *medBCanAccessBlocking = [self expectationWithDescription:@"Mediator B can access resource in blocking mode"];
+	XCTestExpectation __block *medBRelinquishedBlockingAccess = [self expectationWithDescription:@"Mediator C did relinquish resource in blocking mode"];
+	XCTestExpectation __block *medCCanAccessBlocking = [self expectationWithDescription:@"Mediator C can access resource in blocking mode"];
+	XCTestExpectation *medABCCanAccess = [self expectationWithDescription:@"Mediator A has no access, B has no access, C has access in blocking mode"];
+
+	[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"======================= Access Pressure Change >" object:nil];
+
+	self.mediatorAccessChangedBlock = ^(ISResourceMediator *mediator, ISResourceMediatorResourceAccess actualAccess){
+		if (mediator == mediatorA)
+		{
+			if (mediatorA.actualAccess == kISResourceMediatorResourceAccessShared)
+			{
+				[medACanAccessShared fulfill];
+				medACanAccessShared = nil;
+			}
+		}
+
+		if (mediator == mediatorB)
+		{
+			if (mediatorB.actualAccess == kISResourceMediatorResourceAccessBlocking)
+			{
+				[medBCanAccessBlocking fulfill];
+				medBCanAccessBlocking = nil;
+			}
+
+			if (mediatorB.actualAccess == kISResourceMediatorResourceAccessNone)
+			{
+				[medBRelinquishedBlockingAccess fulfill];
+				medBRelinquishedBlockingAccess = nil;
+			
+				dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+					if ((mediatorA.actualAccess == kISResourceMediatorResourceAccessNone) && 
+					    (mediatorB.actualAccess == kISResourceMediatorResourceAccessNone) &&
+					    (mediatorC.actualAccess == kISResourceMediatorResourceAccessBlocking))
+					{
+						[medABCCanAccess fulfill];
+					}
+				});
+			}
+		}
+
+		if (mediator == mediatorC)
+		{
+			if (mediatorC.actualAccess == kISResourceMediatorResourceAccessBlocking)
+			{
+				[medCCanAccessBlocking fulfill];
+				medCCanAccessBlocking = nil;
+			}
+		}
+	};
+
+	mediatorA.preferredAccess = kISResourceMediatorResourceAccessShared;
+	mediatorA.active = YES;
+	
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		mediatorB.preferredAccess = kISResourceMediatorResourceAccessBlocking;
+		mediatorB.accessPressure = kISResourceMediatorAccessPressureRequired;
+		mediatorB.active = YES;
+	});
+
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		mediatorC.preferredAccess = kISResourceMediatorResourceAccessBlocking;
+		mediatorC.active = YES;
+	});
+
+
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		mediatorB.accessPressure = kISResourceMediatorAccessPressurePartiallySupported;
+		mediatorC.accessPressure = kISResourceMediatorAccessPressureRequired;
+	});
+
+	[self waitForExpectationsWithTimeout:10.5 handler:nil];
 }
 
 
