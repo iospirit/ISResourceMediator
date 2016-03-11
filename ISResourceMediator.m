@@ -163,6 +163,15 @@ static NSString *kISResourceMediatorNotificationResultKey = @"result";
 	[commandQueue release];
 	commandQueue = nil;
 	
+	for (ISResourceUser *user in users)
+	{
+		if (user.runningApplication != nil)
+		{
+			[user removeObserver:self forKeyPath:@"runningApplication.isTerminated" context:(void *)self];
+			user.runningApplication = nil;
+		}
+	}
+	
 	[users release];
 	users = nil;
 	
